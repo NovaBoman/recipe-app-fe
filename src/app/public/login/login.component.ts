@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  submit(){
+  login(){
     const formData = this.form.getRawValue();
 
     const data = {
@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit {
       password: formData.password,
     }
     this.http.post('http://localhost:8000/api/login', data).subscribe(
-      result => {
-        console.log('success');
-        console.log('result');
+      (result: any) => {
+        localStorage.setItem('token', result.token);
+        this.router.navigate(['/secure']);
       },
       error => {
         console.log('error');

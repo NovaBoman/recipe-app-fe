@@ -18,7 +18,7 @@ import { SecureComponent } from './secure/secure.component';
     BrowserModule,
     AppRoutingModule,
     PublicModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
