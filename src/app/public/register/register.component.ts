@@ -21,4 +21,24 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  submit(){
+    const formData = this.form.getRawValue();
+
+    const data = {
+      username: formData.username,
+      email: formData.email,
+      password: formData.password,
+      password_confirmation: formData.password_confirmation
+    }
+    this.http.post('http://localhost:8000/api/register', data).subscribe(
+      result => {
+        console.log('success');
+        console.log('result');
+      },
+      error => {
+        console.log('error');
+        console.log(error);
+      }
+    );
+  }
 }
