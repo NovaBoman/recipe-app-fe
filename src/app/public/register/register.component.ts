@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   form!: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
       email: '',
       password: '',
       password_confirmation: ''
-    })
+    });
   }
 
 }
