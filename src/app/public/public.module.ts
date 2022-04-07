@@ -4,6 +4,7 @@ import { PublicComponent } from './public.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -11,7 +12,8 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     PublicComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
