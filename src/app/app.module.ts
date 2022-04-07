@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { PublicModule } from './public/public.module';
 import { SecureComponent } from './secure/secure.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    SecureComponent
+    SecureComponent,
+
   ],
   imports: [
     BrowserModule,
