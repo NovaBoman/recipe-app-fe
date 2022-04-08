@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SearchComponent } from './search/search.component';
     RegisterComponent,
     LoginComponent,
     SearchComponent,
+    RecipeComponent,
   ],
   imports: [
     CommonModule,
