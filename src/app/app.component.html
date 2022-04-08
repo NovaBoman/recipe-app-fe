@@ -10,6 +10,9 @@
     <div class="navbar-nav">
         <a routerLink="/login" class="nav-link">Login</a>
     </div>
+    <div class="navbar-nav">
+        <a routerLink="/" class="nav-link" (click)="logout()">Logout</a>
+    </div>
 </nav>
 <div class="container">
     <router-outlet></router-outlet>
