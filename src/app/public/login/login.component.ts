@@ -29,16 +29,16 @@ export class LoginComponent implements OnInit {
       username: formData.username,
       password: formData.password,
     }
-    this.http.post('http://localhost:8000/api/login', data).subscribe(
-      (result: any) => {
+    this.http.post('http://localhost:8000/api/login', data).subscribe({
+      next: (result: any) => {
         localStorage.setItem('token', result.token);
         this.router.navigate(['/secure']);
       },
-      error => {
+      error: (error) => {
         console.log('error');
         console.log(error);
       }
-    );
+    });
   }
 
 }
