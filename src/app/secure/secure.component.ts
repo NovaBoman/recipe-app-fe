@@ -39,9 +39,11 @@ export class SecureComponent implements OnInit {
     const formData = this.form.getRawValue();
 
     this.http.post('http://localhost:8000/api/lists', formData, {headers: this.headers}).subscribe({
-      next: result => {
+      next: (result: any) => {
         console.log('success');
         console.log(result);
+
+        this.lists.push(result.list);
       },
       error: error => {
         console.log('error');
