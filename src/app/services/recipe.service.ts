@@ -12,8 +12,6 @@ export class RecipeService {
 
        
     apiKey = 'apiKey=5ff68332613048e489ece922d78373a9';
-    headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`});
     
   // Get number of random recipes 1-100
   getRandomRecipes(number: number){

@@ -24,21 +24,15 @@ export class RegisterComponent implements OnInit {
   submit(){
     const formData = this.form.getRawValue();
 
-    const data = {
-      username: formData.username,
-      email: formData.email,
-      password: formData.password,
-      password_confirmation: formData.password_confirmation
-    }
-    this.http.post('http://localhost:8000/api/register', data).subscribe(
-      result => {
+    this.http.post('http://localhost:8000/api/register', formData).subscribe({
+      next: result => {
         console.log('success');
-        console.log('result');
+        console.log(result);
       },
-      error => {
+      error: error => {
         console.log('error');
         console.log(error);
       }
-    );
+    });
   }
 }
