@@ -11,9 +11,7 @@ import { SecureComponent } from './secure/secure.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SecureComponent
-
-
+    SecureComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,3 +3,9 @@
     <p class="lead">This is the home component</p>
     <a routerLink="/login" class="btn btn lg btn-primary">Login</a>
 </div>
+
+<div class="card-wrapper">
+    <div class="recipe-card" *ngFor="let recipe of recipes">
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
+</div>
