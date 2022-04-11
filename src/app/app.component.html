@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a routerLink="/" class="nav-link">Home</a>
+        </li>
+    </ul>
+    <div class="navbar-nav">
+        <form>
+            <input type="text" placeholder="Search">
+            <a routerLink="/search">Yum!</a>
+        </form>
+    </div>
+    <div class="navbar-nav">
+        <a routerLink="/register" class="nav-link">Sign up</a>
+    </div>
+    <div class="navbar-nav">
+        <a routerLink="/login" class="nav-link">Login</a>
+    </div>
+    <div class="navbar-nav">
+        <a routerLink="/" class="nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
