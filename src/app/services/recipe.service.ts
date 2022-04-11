@@ -21,4 +21,8 @@ export class RecipeService {
      return this.http.get(`https://api.spoonacular.com/recipes/random?number=${number}&${this.apiKey}`);
   }
 
+  getRecipe(id: string){
+    return this.http.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&${this.apiKey}`);
+  }
+
 }

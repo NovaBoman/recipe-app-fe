@@ -1,4 +1,4 @@
-<a href="/recipe/{{recipe.id}}" class="card">
+<a [routerLink]="['/recipe', recipe.id]" class="card">
     <img src="{{recipe.image}}" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">{{recipe.title}}</h5>
