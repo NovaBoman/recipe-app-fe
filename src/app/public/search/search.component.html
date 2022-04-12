@@ -1,1 +1,26 @@
 <p>search works!</p>
+
+<div class="form-check">
+    <input #dairy class="form-check-input" type="checkbox" value="dairy" id="dairy" (change)="search()">
+
+    <label class=" form-check-label" for="dairy">
+        Dairy free
+    </label>
+</div>
+<div class="form-check">
+    <input #gluten class="form-check-input" type="checkbox" value="gluten" id="gluten" (change)="search()">
+    <label class="form-check-label" for="gluten">
+        Gluten free
+    </label>
+</div>
+<div class="form-check">
+    <input #peanut class="form-check-input" type="checkbox" value="peanut" id="peanut" (change)="search()">
+    <label class="form-check-label" for="peanut">
+        No peanuts
+    </label>
+</div>
+<div class="card-wrapper">
+    <div class="recipe-card" *ngFor="let recipe of recipes">
+        <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
+</div>

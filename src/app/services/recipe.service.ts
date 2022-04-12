@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class RecipeService {
   constructor(private http: HttpClient) {}
 
-  apiKey = 'apiKey=5ff68332613048e489ece922d78373a9';
+  apiKey = 'apiKey=8dcc09e4297c48a9821e1d4192a9bb19';
 
   // Get number of random recipes 1-100
   getRandomRecipes(number: number) {
@@ -25,6 +25,12 @@ export class RecipeService {
   getBulkRecipes(recipeIds: any) {
     return this.http.get(
       `https://api.spoonacular.com/recipes/informationBulk?ids=${recipeIds}&includeNutrition=false&${this.apiKey}`
+    );
+  }
+
+  recipeSearch(number: number, query: string, filterArray: any) {
+    return this.http.get(
+      `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=${number}&intolerances=${filterArray}&${this.apiKey}`
     );
   }
 }
