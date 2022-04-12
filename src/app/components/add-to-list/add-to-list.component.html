@@ -1,0 +1,16 @@
+<p>add-to-list works!</p>
+
+<form [formGroup]="form" class="form mt-3" (submit)="submit()">
+    <div class="form-group">
+        <select class="form-control" formControlName="recipe_list_id">
+            <option *ngFor="let list of lists" [value]="list.id">
+                {{ list.title }}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="hidden" formControlName="recipe_id" class="form-control">
+    </div>
+    {{recipeId}}
+    <button class="btn btn-lg btn-primary btn-block">Add to list</button>
+</form>

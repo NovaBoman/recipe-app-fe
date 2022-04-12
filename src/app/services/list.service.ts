@@ -1,20 +1,19 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ListService {
+  constructor(private http: HttpClient) {}
 
-  
-  constructor(private http: HttpClient) { }
+  headers = new HttpHeaders({
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+  });
 
-    headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`});
-
-
-    getLists(){
-      return this.http.get('http://localhost:8000/api/lists', {headers: this.headers});
-    }
+  getLists() {
+    return this.http.get('http://localhost:8000/api/lists', {
+      headers: this.headers,
+    });
+  }
 }

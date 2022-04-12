@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipeCardComponent } from '../components/recipe-card/recipe-card.component';
+import { AddToListComponent } from '../components/add-to-list/add-to-list.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RecipeCardComponent } from '../components/recipe-card/recipe-card.compo
     LoginComponent,
     SearchComponent,
     RecipeComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    AddToListComponent
   ],
   imports: [
     CommonModule,

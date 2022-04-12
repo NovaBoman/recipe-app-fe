@@ -2,6 +2,9 @@
     <img src="{{recipe.image}}" class="card-img-top">
     <div class="card-body">
         <h5 class="card-title">{{recipe.title}}</h5>
-        <a href="#" class="btn btn-primary">Add to list</a>
     </div>
 </a>
+<a href="#" class="btn btn-primary">Add to list</a>
+<div class="list-add">
+    <app-add-to-list [recipeId]="recipe.id"></app-add-to-list>
+</div>
