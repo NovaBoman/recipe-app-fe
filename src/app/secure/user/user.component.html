@@ -8,10 +8,5 @@
 </form>
 <div *ngFor="let list of lists">
     {{list.title}}
-    <ul>
-        <li *ngFor="let entry of list.list_entries">
-            {{entry.id}}
-        </li>
-    </ul>
     <a [routerLink]="['/secure/list', list.id]" class="nav-link">Go to list</a>
 </div>
