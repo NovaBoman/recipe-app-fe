@@ -47,8 +47,14 @@ export class ListComponent implements OnInit {
         this.recipeService.getBulkRecipes(this.recipeIds).subscribe({
           next: (result: any) => {
             this.recipes = result;
+            this.entries.forEach((entry: any) => {
+              entry.recipe = this.recipes.find((recipe: any) => {
+                return recipe.id === entry['recipe_id'];
+              });
+            });
           },
         });
+
         console.log(this.recipeIds);
       },
 
@@ -75,5 +81,15 @@ export class ListComponent implements OnInit {
           console.log(error);
         },
       });
+  }
+
+  deleteEntry(id: number) {
+    this.entries = this.entries.filter((entry: any) => entry.id != id);
+
+    this.listService.deleteEntry(id).subscribe({
+      next: (result) => {
+        console.log(result);
+      },
+    });
   }
 }

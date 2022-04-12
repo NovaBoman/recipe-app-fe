@@ -22,4 +22,10 @@ export class ListService {
       headers: this.headers,
     });
   }
+
+  deleteEntry(id: number) {
+    return this.http.delete(`http://localhost:8000/api/entry/${id}/delete`, {
+      headers: this.headers,
+    });
+  }
 }
