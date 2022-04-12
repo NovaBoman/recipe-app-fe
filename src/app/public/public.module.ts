@@ -12,7 +12,6 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { RecipeCardComponent } from '../components/recipe-card/recipe-card.component';
 import { AddToListComponent } from '../components/add-to-list/add-to-list.component';
 
-
 @NgModule({
   declarations: [
     PublicComponent,
@@ -22,13 +21,8 @@ import { AddToListComponent } from '../components/add-to-list/add-to-list.compon
     SearchComponent,
     RecipeComponent,
     RecipeCardComponent,
-    AddToListComponent
+    AddToListComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-  ]
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, HttpClientModule],
 })
-export class PublicModule { }
+export class PublicModule {}

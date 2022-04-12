@@ -9,7 +9,7 @@ import { SecureComponent } from './secure/secure.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListComponent } from './secure/list/list.component';
 import { UserComponent } from './secure/user/user.component';
-
+import { SearchBarComponent } from './public/search/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,15 +17,16 @@ import { UserComponent } from './secure/user/user.component';
     SecureComponent,
     ListComponent,
     UserComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PublicModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
