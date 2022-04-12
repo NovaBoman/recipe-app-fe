@@ -4,7 +4,7 @@
 <div *ngIf="list">
     <h2>{{list.title}}</h2><button class="btn btn sm btn-secondary" (click)="deleteList(list.id)">Delete list</button>
 
-    <div class="card" *ngFor="let entry of list.list_entries">
-        {{entry.id}} <button class="btn btn sm btn-secondary">Delete entry</button>
+    <div class="card" *ngFor="let recipe of recipes">
+        {{recipe.title}} <button class="btn btn sm btn-secondary">Delete entry</button>
     </div>
 </div>

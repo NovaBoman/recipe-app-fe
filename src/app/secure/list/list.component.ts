@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-list',
@@ -12,6 +13,7 @@ export class ListComponent implements OnInit {
   list: any;
   entries: any;
   recipeIds: any = [];
+  recipes: any;
   id: any;
 
   headers = new HttpHeaders({
@@ -20,6 +22,7 @@ export class ListComponent implements OnInit {
 
   constructor(
     private listService: ListService,
+    private recipeService: RecipeService,
     private route: ActivatedRoute,
     private http: HttpClient,
     private router: Router
@@ -41,6 +44,11 @@ export class ListComponent implements OnInit {
         this.entries.forEach((entry: any) =>
           this.recipeIds.push(entry['recipe_id'])
         );
+        this.recipeService.getBulkRecipes(this.recipeIds).subscribe({
+          next: (result: any) => {
+            this.recipes = result;
+          },
+        });
         console.log(this.recipeIds);
       },
 
