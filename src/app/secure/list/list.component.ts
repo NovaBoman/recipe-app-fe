@@ -10,6 +10,8 @@ import { ListService } from 'src/app/services/list.service';
 })
 export class ListComponent implements OnInit {
   list: any;
+  entries: any;
+  recipeIds: any = [];
   id: any;
 
   headers = new HttpHeaders({
@@ -32,7 +34,15 @@ export class ListComponent implements OnInit {
     });
 
     this.listService.getListById(this.id).subscribe({
-      next: (result: any) => (this.list = result),
+      next: (result: any) => {
+        this.list = result;
+        this.entries = Object.values(this.list.list_entries);
+
+        this.entries.forEach((entry: any) =>
+          this.recipeIds.push(entry['recipe_id'])
+        );
+        console.log(this.recipeIds);
+      },
 
       error: (error: any) => {
         console.log('error');
