@@ -1,8 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ListService } from '../services/list.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-secure',
@@ -10,58 +6,5 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./secure.component.scss'],
 })
 export class SecureComponent {
-  // user: string | null = localStorage.getItem('user');
-  // lists: any;
-  // form!: FormGroup;
-  // headers = new HttpHeaders({
-  //   Authorization: `Bearer ${localStorage.getItem('token')}`,
-  // });
-  // constructor(
-  //   private fb: FormBuilder,
-  //   private http: HttpClient,
-  //   private router: Router,
-  //   private listService: ListService
-  // ) {}
-  // ngOnInit(): void {
-  //   this.form = this.fb.group({
-  //     title: '',
-  //   });
-  //   this.listService.getLists().subscribe({
-  //     next: (result) => (this.lists = result),
-  //   });
-  // }
-  // submit() {
-  //   const formData = this.form.getRawValue();
-  //   this.http
-  //     .post('http://localhost:8000/api/lists', formData, {
-  //       headers: this.headers,
-  //     })
-  //     .subscribe({
-  //       next: (result: any) => {
-  //         console.log('success');
-  //         console.log(result);
-  //         this.lists.push(result.list);
-  //       },
-  //       error: (error) => {
-  //         console.log('error');
-  //         console.log(error);
-  //       },
-  //     });
-  // }
-  // deleteList(id: number) {
-  //   return this.http
-  //     .delete(`http://localhost:8000/api/lists/${id}/delete`, {
-  //       headers: this.headers,
-  //     })
-  //     .subscribe({
-  //       next: (result: any) => {
-  //         console.log('success');
-  //         console.log(result);
-  //       },
-  //       error: (error) => {
-  //         console.log('error');
-  //         console.log(error);
-  //       },
-  //     });
-  // }
+  constructor() {}
 }
