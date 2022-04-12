@@ -7,51 +7,69 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-secure',
   templateUrl: './secure.component.html',
-  styleUrls: ['./secure.component.scss']
+  styleUrls: ['./secure.component.scss'],
 })
 export class SecureComponent implements OnInit {
-
   user: string | null = localStorage.getItem('user');
   lists: any;
   form!: FormGroup;
 
   headers = new HttpHeaders({
-  'Authorization': `Bearer ${localStorage.getItem('token')}`});
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
+  });
 
-  constructor(private fb: FormBuilder, 
+  constructor(
+    private fb: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private listService: ListService,
-    ) { }
+    private listService: ListService
+  ) {}
 
   ngOnInit(): void {
-
     this.form = this.fb.group({
-      title: ''
+      title: '',
     });
 
     this.listService.getLists().subscribe({
-      next: result => this.lists = result
+      next: (result) => (this.lists = result),
     });
   }
 
-  submit(){
+  submit() {
     const formData = this.form.getRawValue();
 
-    this.http.post('http://localhost:8000/api/lists', formData, {headers: this.headers}).subscribe({
-      next: (result: any) => {
-        console.log('success');
-        console.log(result);
+    this.http
+      .post('http://localhost:8000/api/lists', formData, {
+        headers: this.headers,
+      })
+      .subscribe({
+        next: (result: any) => {
+          console.log('success');
+          console.log(result);
 
-        this.lists.push(result.list);
-      },
-      error: error => {
-        console.log('error');
-        console.log(error);
-      }
-    });
+          this.lists.push(result.list);
+        },
+        error: (error) => {
+          console.log('error');
+          console.log(error);
+        },
+      });
   }
 
-
-
+  deleteList(id: number) {
+    return this.http
+      .delete(`http://localhost:8000/api/lists/${id}/delete`, {
+        headers: this.headers,
+      })
+      .subscribe({
+        next: (result: any) => {
+          console.log('success');
+          console.log(result);
+        },
+        error: (error) => {
+          console.log('error');
+          console.log(error);
+        },
+      });
+  }
 }
