@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
 
 @Component({
@@ -19,7 +19,8 @@ export class ListComponent implements OnInit {
   constructor(
     private listService: ListService,
     private route: ActivatedRoute,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {}
 
   ngOnInit(): any {
@@ -49,12 +50,11 @@ export class ListComponent implements OnInit {
         next: (result: any) => {
           console.log('success');
           console.log(result);
+          this.router.navigate(['/secure']);
         },
         error: (error: any) => {
           console.log('error');
           console.log(error);
-          this.list = false;
-          return error;
         },
       });
   }
