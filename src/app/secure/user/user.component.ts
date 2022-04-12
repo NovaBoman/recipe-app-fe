@@ -55,21 +55,4 @@ export class UserComponent implements OnInit {
         },
       });
   }
-
-  deleteList(id: number) {
-    return this.http
-      .delete(`http://localhost:8000/api/lists/${id}/delete`, {
-        headers: this.headers,
-      })
-      .subscribe({
-        next: (result: any) => {
-          console.log('success');
-          console.log(result);
-        },
-        error: (error: any) => {
-          console.log('error');
-          console.log(error);
-        },
-      });
-  }
 }
