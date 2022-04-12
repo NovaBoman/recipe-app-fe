@@ -1,5 +1,5 @@
-<p>secure works!</p>
-<!-- <p>Welcome {{user}}!</p>
+<p>user works!</p>
+<p>Welcome {{user}}!</p>
 
 <form [formGroup]="form" class="form mt-3" (submit)="submit()">
     <div class="form-group">
@@ -14,6 +14,5 @@
             {{entry.id}}
         </li>
     </ul>
-    <button class="btn btn-sm btn-primary btn-block" (click)="deleteList(list.id)">Delete list</button>
-</div> -->
-<router-outlet></router-outlet>
+    <a [routerLink]="['/secure/list', list.id]" class="nav-link">Go to list</a>
+</div>

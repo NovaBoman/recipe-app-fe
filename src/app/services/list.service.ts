@@ -16,4 +16,10 @@ export class ListService {
       headers: this.headers,
     });
   }
+
+  getListById(id: number) {
+    return this.http.get(`http://localhost:8000/api/lists/${id}`, {
+      headers: this.headers,
+    });
+  }
 }
