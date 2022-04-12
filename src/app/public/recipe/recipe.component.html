@@ -1,5 +1,19 @@
-<p>recipe works!</p>
+<div class="card">
+    <img src="{{recipe.image}}" class="card-img-top">
+    <h2 class="card-title">{{recipe.title}}</h2>
+    <p>Estimated time: {{recipe.readyInMinutes}} minutes</p>
+    <p>Servings: {{recipe.servings}}</p>
+    <div class="card-body">
+        <h3>Ingredients</h3>
+        <ul>
+            <li *ngFor="let ingredient of recipe.extendedIngredients">
+                {{ingredient.original}}
+            </li>
+        </ul>
 
-<div *ngFor="let recipe of recipes">
-    {{recipe.id}} Hej
+        <h3>Instructions</h3>
+        <p>{{recipe.instructions}}</p>
+        <a href="#" class="btn btn-primary">Add to list</a>
+    </div>
+
 </div>

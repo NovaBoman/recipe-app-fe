@@ -25,13 +25,11 @@ export class LoginComponent implements OnInit {
   login(){
     const formData = this.form.getRawValue();
 
-    const data = {
-      username: formData.username,
-      password: formData.password,
-    }
-    this.http.post('http://localhost:8000/api/login', data).subscribe({
+    this.http.post('http://localhost:8000/api/login', formData).subscribe({
       next: (result: any) => {
         localStorage.setItem('token', result.token);
+        localStorage.setItem('user', result.user.username);
+        localStorage.setItem('userId', result.user.id);
         this.router.navigate(['/secure']);
       },
       error: (error) => {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe',
@@ -8,12 +9,21 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class RecipeComponent implements OnInit {
 
-  recipes: any;
-  constructor(private recipeService: RecipeService) { }
+  recipe: any;
+  id: any;
+ 
+
+  constructor(private recipeService: RecipeService, private route: ActivatedRoute ) { }
 
   ngOnInit(): any {
-    this.recipeService.getRandomRecipes(2).subscribe({
-      next: (result: any) => this.recipes = result.recipes
+
+this.route.params.subscribe({
+  next: params => {this.id = params['id'];
+console.log(this.id, params)}
+  });
+
+    this.recipeService.getRecipe(this.id).subscribe({
+      next: (result: any) => this.recipe = result
     });
         
       

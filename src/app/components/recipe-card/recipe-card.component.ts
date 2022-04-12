@@ -1,38 +1,37 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-recipe-card',
+  templateUrl: './recipe-card.component.html',
+  styleUrls: ['./recipe-card.component.scss'],
 })
-export class RegisterComponent implements OnInit {
-
+export class RecipeCardComponent implements OnInit {
   form!: FormGroup;
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      username: '',
-      email: '',
-      password: '',
-      password_confirmation: ''
+      recipe_list_id: '',
+      recipe_id: '',
     });
   }
 
-  submit(){
+  submit() {
     const formData = this.form.getRawValue();
 
     this.http.post('http://localhost:8000/api/register', formData).subscribe({
-      next: result => {
+      next: (result) => {
         console.log('success');
         console.log(result);
       },
-      error: error => {
+      error: (error) => {
         console.log('error');
         console.log(error);
-      }
+      },
     });
   }
+
+  @Input() recipe: any;
 }

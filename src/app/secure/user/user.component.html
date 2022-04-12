@@ -1,0 +1,18 @@
+<p>user works!</p>
+<p>Welcome {{user}}!</p>
+
+<form [formGroup]="form" class="form mt-3" (submit)="submit()">
+    <div class="form-group">
+        <input type="text" formControlName="title" class="form-control" placeholder="List title">
+    </div>
+    <button class="btn btn-sm btn-primary btn-block">Create list</button>
+</form>
+<div *ngFor="let list of lists">
+    {{list.title}}
+    <ul>
+        <li *ngFor="let entry of list.list_entries">
+            {{entry.id}}
+        </li>
+    </ul>
+    <a [routerLink]="['/secure/list', list.id]" class="nav-link">Go to list</a>
+</div>
