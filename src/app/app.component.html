@@ -1,18 +1,23 @@
 <nav class="navbar navbar-dark bg-dark mb-4">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+    <div class="nav-item-container">
+        <app-search-bar></app-search-bar>
+    </div>
+    <div class="nav-item-container">
+        <div class="navbar-nav">
             <a routerLink="/" class="nav-link">Home</a>
-        </li>
-    </ul>
-    <app-search-bar></app-search-bar>
-    <div class="navbar-nav">
-        <a routerLink="/register" class="nav-link">Sign up</a>
-    </div>
-    <div class="navbar-nav">
-        <a routerLink="/login" class="nav-link">Login</a>
-    </div>
-    <div class="navbar-nav">
-        <a routerLink="/" class="nav-link" (click)="logout()">Logout</a>
+        </div>
+        <div class="navbar-nav" *ngIf="!user">
+            <a routerLink="/register" class="nav-link">Register</a>
+        </div>
+        <div class="navbar-nav" *ngIf="!user">
+            <a routerLink="/login" class="nav-link">Login</a>
+        </div>
+        <div class="navbar-nav" *ngIf="user">
+            <a routerLink="/secure" class="nav-link">Your lists</a>
+        </div>
+        <div class="navbar-nav" *ngIf="user">
+            <button class="btn btn-primary" (click)="logout()">Logout</button>
+        </div>
     </div>
 </nav>
 <div class="container">
