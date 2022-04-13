@@ -6,37 +6,39 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   form!: FormGroup;
-  constructor(private fb: FormBuilder, 
+  constructor(
+    private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
       username: '',
-      password: ''
-    })
-  }
-
-  login(){
-    const formData = this.form.getRawValue();
-
-    this.http.post('http://localhost:8000/api/login', formData).subscribe({
-      next: (result: any) => {
-        localStorage.setItem('token', result.token);
-        localStorage.setItem('user', result.user.username);
-        localStorage.setItem('userId', result.user.id);
-        this.router.navigate(['/secure']);
-      },
-      error: (error) => {
-        console.log('error');
-        console.log(error);
-      }
+      password: '',
     });
   }
 
+  login() {
+    const formData = this.form.getRawValue();
+
+    this.http
+      .post('https://nova-recipe-be.herokuapp.com/api/login', formData)
+      .subscribe({
+        next: (result: any) => {
+          localStorage.setItem('token', result.token);
+          localStorage.setItem('user', result.user.username);
+          localStorage.setItem('userId', result.user.id);
+          this.router.navigate(['/secure']);
+        },
+        error: (error) => {
+          console.log('error');
+          console.log(error);
+        },
+      });
+  }
 }

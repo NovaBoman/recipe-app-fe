@@ -35,7 +35,7 @@ export class AddToListComponent implements OnInit {
     const formData = this.form.getRawValue();
 
     this.http
-      .post('http://localhost:8000/api/lists/entry', formData, {
+      .post('https://nova-recipe-be.herokuapp.com/api/lists/entry', formData, {
         headers: this.headers,
       })
       .subscribe({
