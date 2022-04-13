@@ -21,16 +21,18 @@ export class RecipeCardComponent implements OnInit {
   submit() {
     const formData = this.form.getRawValue();
 
-    this.http.post('http://localhost:8000/api/register', formData).subscribe({
-      next: (result) => {
-        console.log('success');
-        console.log(result);
-      },
-      error: (error) => {
-        console.log('error');
-        console.log(error);
-      },
-    });
+    this.http
+      .post('https://nova-recipe-be.herokuapp.com/api/register', formData)
+      .subscribe({
+        next: (result) => {
+          console.log('success');
+          console.log(result);
+        },
+        error: (error) => {
+          console.log('error');
+          console.log(error);
+        },
+      });
   }
 
   @Input() recipe: any;

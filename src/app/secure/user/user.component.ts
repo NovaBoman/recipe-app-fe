@@ -39,7 +39,7 @@ export class UserComponent implements OnInit {
     const formData = this.form.getRawValue();
 
     this.http
-      .post('http://localhost:8000/api/lists', formData, {
+      .post('https://nova-recipe-be.herokuapp.com/api/lists', formData, {
         headers: this.headers,
       })
       .subscribe({

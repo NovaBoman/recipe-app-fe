@@ -12,26 +12,35 @@ export class ListService {
   });
 
   getLists() {
-    return this.http.get('http://localhost:8000/api/lists', {
+    return this.http.get('https://nova-recipe-be.herokuapp.com/api/lists', {
       headers: this.headers,
     });
   }
 
   getListById(id: number) {
-    return this.http.get(`http://localhost:8000/api/lists/${id}`, {
-      headers: this.headers,
-    });
+    return this.http.get(
+      `https://nova-recipe-be.herokuapp.com/api/lists/${id}`,
+      {
+        headers: this.headers,
+      }
+    );
   }
 
   deleteList(id: number) {
-    return this.http.delete(`http://localhost:8000/api/lists/${id}/delete`, {
-      headers: this.headers,
-    });
+    return this.http.delete(
+      `https://nova-recipe-be.herokuapp.com/api/lists/${id}/delete`,
+      {
+        headers: this.headers,
+      }
+    );
   }
 
   deleteEntry(id: number) {
-    return this.http.delete(`http://localhost:8000/api/entry/${id}/delete`, {
-      headers: this.headers,
-    });
+    return this.http.delete(
+      `https://nova-recipe-be.herokuapp.com/api/entry/${id}/delete`,
+      {
+        headers: this.headers,
+      }
+    );
   }
 }
