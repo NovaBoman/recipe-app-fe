@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ListService } from 'src/app/services/list.service';
 
 @Component({
@@ -21,7 +20,6 @@ export class UserComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router,
     private listService: ListService
   ) {}
 
@@ -29,10 +27,11 @@ export class UserComponent implements OnInit {
     this.form = this.fb.group({
       title: '',
     });
-
-    this.listService.getLists().subscribe({
-      next: (result: any) => (this.lists = result),
-    });
+    if (this.user) {
+      this.listService.getLists().subscribe({
+        next: (result: any) => (this.lists = result),
+      });
+    }
   }
 
   submit() {
