@@ -10,6 +10,7 @@ import { ListService } from 'src/app/services/list.service';
 })
 export class AddToListComponent implements OnInit {
   lists: any;
+  user = localStorage.getItem('user');
   headers = this.listService.headers;
   @Input() recipeId: any;
 
@@ -25,10 +26,11 @@ export class AddToListComponent implements OnInit {
       recipe_list_id: '',
       recipe_id: this.recipeId,
     });
-
-    this.listService.getLists().subscribe({
-      next: (result) => (this.lists = result),
-    });
+    if (this.user) {
+      this.listService.getLists().subscribe({
+        next: (result) => (this.lists = result),
+      });
+    }
   }
 
   submit() {
