@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -6,16 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'recipe-app';
+  user: any = localStorage.getItem('user');
 
-  loggedIn = false;
+  constructor(private route: Router) {}
 
   ngOnInit(): void {
-    this.loggedIn = localStorage.getItem('token') !== null;
+    this.loggedIn();
+  }
+
+  loggedIn() {
+    if (localStorage.getItem('user') !== null) {
+      this.user = true;
+      return this.user;
+    } else {
+      this.user = false;
+      return this.user;
+    }
   }
 
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('userId');
+    this.loggedIn();
+    this.route.navigate(['/']).then(() => {
+      window.location.reload();
+    });
   }
 }

@@ -1,3 +1,9 @@
-.search {
-  margin-left: 0.5rem;
+.navbar {
+  padding: 1rem 3rem;
+}
+
+.nav-item-container {
+  flex: 1;
+  justify-content: space-around;
+  display: flex;
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private route: Router
+  ) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -27,8 +32,7 @@ export class RegisterComponent implements OnInit {
       .post('https://nova-recipe-be.herokuapp.com/api/register', formData)
       .subscribe({
         next: (result) => {
-          console.log('success');
-          console.log(result);
+          this.route.navigate(['/login']);
         },
         error: (error) => {
           console.log('error');

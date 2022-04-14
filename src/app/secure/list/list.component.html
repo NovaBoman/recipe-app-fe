@@ -1,15 +1,14 @@
-<p>list works!</p>
-
-
-<div *ngIf="list">
+<div class="list-container" *ngIf="list">
     <h2>{{list.title}}</h2><button class="btn btn sm btn-secondary" (click)="deleteList(list.id)">Delete list</button>
 
-    <div class="card" *ngFor="let entry of entries">
-        {{entry.recipe.title}}
+    <div class="list-item-container" *ngFor="let entry of entries">
+        <img src="{{entry.recipe.image}}" alt="">
+        <a class="recipe-title text-decoration-none fs-4"
+            routerLink="/recipe/{{entry.recipe.id}}">{{entry.recipe.title}}</a>
         <button class="btn btn sm btn-secondary" (click)="deleteEntry(entry.id)">Delete
         </button>
     </div>
-
-
-
 </div>
+
+
+<button class="btn btn-primary" routerLink="/secure">Back to lists</button>

@@ -1,8 +1,14 @@
-<div class="jumbotron">
+<div class="jumbotron" *ngIf="!user">
     <h1>Welcome</h1>
-    <p class="lead">This is the home component</p>
-    <a routerLink="/login" class="btn btn lg btn-primary">Login</a>
+    <p class="lead">Register or login to create your lists of favourite recipes!</p>
+    <a routerLink="/register" class="btn btn lg btn-primary">Sign up here</a>
 </div>
+
+<div class="jumbotron" *ngIf="user">
+    <h1>Here's some inspiration!</h1>
+    <p class="lead">Or use search to find more recipes</p>
+</div>
+
 
 <div class="card-wrapper">
     <div class="recipe-card" *ngFor="let recipe of recipes">
