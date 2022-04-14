@@ -22,7 +22,7 @@ export class RecipeCardComponent implements OnInit {
     const formData = this.form.getRawValue();
 
     this.http
-      .post('https://nova-recipe-be.herokuapp.com/api/register', formData)
+      .post('https://nova-recipe-be.herokuapp.com/api/lists', formData)
       .subscribe({
         next: (result) => {
           console.log('success');
