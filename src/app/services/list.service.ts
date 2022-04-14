@@ -7,13 +7,11 @@ import { Injectable } from '@angular/core';
 export class ListService {
   constructor(private http: HttpClient) {}
 
-  token = localStorage.getItem('token');
   headers = new HttpHeaders({
-    Authorization: `Bearer ${this.token}`,
+    Authorization: `Bearer ${localStorage.getItem('token')}`,
   });
 
   getLists() {
-    this.token = localStorage.getItem('token');
     return this.http.get('https://nova-recipe-be.herokuapp.com/api/lists', {
       headers: this.headers,
     });
