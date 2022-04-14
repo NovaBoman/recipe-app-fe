@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', result.token);
           localStorage.setItem('user', result.user.username);
           localStorage.setItem('userId', result.user.id);
-          this.router.navigate(['/secure']).then(() => {
+          this.router.navigate(['/']).then(() => {
             window.location.reload();
           });
         },
