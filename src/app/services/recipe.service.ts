@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class RecipeService {
   constructor(private http: HttpClient) {}
 
-  apiKey = 'apiKey=8dcc09e4297c48a9821e1d4192a9bb19';
+  // Add your API key here using the form 'apiKey=<your API key>'
+  apiKey = environment.API_KEY;
 
   // Get number of random recipes 1-100
   getRandomRecipes(number: number) {
